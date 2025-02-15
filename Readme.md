@@ -8,10 +8,8 @@ Check out the live application [here](https://flash-learner-psi.vercel.app).
 
 ## Features
 
-- Add, edit, and delete flashcards
-- Organize flashcards into categories
-- Search for flashcards by keyword
-- User-friendly interface
+- Add Flashcards
+- Using leinter system
 
 ## Getting Started
 
