@@ -2,7 +2,7 @@ import { create } from 'zustand';
 import axios from 'axios';
 import { AuthState, User } from '../types';
 
-const API_URL = 'http://localhost:3000/api';
+const API_URL = import.meta.env.VITE_BACKEND_URL+'/api';
 
 export const useAuthStore = create<AuthState>((set) => ({
   user: JSON.parse(localStorage.getItem('user') || 'null'),

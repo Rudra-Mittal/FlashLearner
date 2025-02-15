@@ -12,7 +12,10 @@ const PORT = process.env.PORT || 3000;
 const MONGODB_URI = process.env.MONGODB_URI || '';
 
 // Middleware
-app.use(cors());
+app.use(cors({
+  origin: [process.env.FRONTEND_URL||"",'http://localhost:5173'],
+  credentials: true,
+}));
 app.use(express.json());
 
 // Routes
@@ -23,7 +26,7 @@ app.use('/api/flashcards', flashcardRouter);
 mongoose.connect(MONGODB_URI)
   .then(() => {
     console.log('Connected to MongoDB');
-    app.listen(PORT, () => {
+    app.listen(3000,'0.0.0.0', () => {
       console.log(`Server is running on port ${PORT}`);
     });
   })

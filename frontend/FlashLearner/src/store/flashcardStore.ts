@@ -3,7 +3,7 @@ import axios from 'axios';
 import { FlashcardState } from '../types';
 import { useAuthStore } from './authStore';
 
-const API_URL = 'http://localhost:3000/api';
+const API_URL = import.meta.env.VITE_BACKEND_URL+'/api';
 
 export const useFlashcardStore = create<FlashcardState>((set) => ({
   flashcards: [],
