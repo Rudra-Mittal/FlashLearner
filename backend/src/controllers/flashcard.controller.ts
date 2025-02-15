@@ -36,12 +36,10 @@ export const getFlashcards = async (req: Request, res: Response) => {
   try {
     const userId = (req as any).userId;
     const now = new Date();
-
     const flashcards = await Flashcard.find({
       user: userId,
-      nextReview: { $lte: now },
+      nextReview: { $gte: now },
     });
-
     res.json(flashcards);
   } catch (error) {
     res.status(500).json({ message: 'Error fetching flashcards' });
