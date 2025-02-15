@@ -2,7 +2,7 @@ import { Request, Response } from 'express';
 import jwt from 'jsonwebtoken';
 import { User } from '../models/user.model';
 
-const JWT_SECRET = process.env.JWT_SECRET || 'your-secret-key';
+const JWT_SECRET = process.env.JWT_SECRET ||'';
 
 export const register = async (req: Request, res: Response) => {
   try {
@@ -27,6 +27,7 @@ export const login = async (req: Request, res: Response) => {
     const { email, password } = req.body;
     
     const user = await User.findOne({ email }).select('+password');
+    // @ts-ignore
     if (!user || !(await user.comparePassword(password))) {
       return res.status(401).json({ message: 'Invalid credentials' });
     }
