@@ -30,7 +30,7 @@ export function FlashcardCreate() {
       <form onSubmit={handleSubmit} className="space-y-4">
         <div>
           <label className="block text-sm font-medium text-gray-700">Question</label>
-          <textarea
+          <textarea title='Question'
             className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500"
             rows={3}
             value={question}
@@ -40,8 +40,8 @@ export function FlashcardCreate() {
         </div>
         <div>
           <label className="block text-sm font-medium text-gray-700">Answer</label>
-          <textarea
-            className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500"
+          <textarea title='Answer'
+            className ="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500"
             rows={3}
             value={answer}
             onChange={(e) => setAnswer(e.target.value)}

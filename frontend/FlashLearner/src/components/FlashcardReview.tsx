@@ -1,7 +1,6 @@
 import { useState, useEffect } from 'react';
 import { useFlashcardStore } from '../store/flashcardStore';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Flashcard } from '../types';
 
 export function FlashcardReview() {
   const { flashcards, fetchFlashcards, updateFlashcard } = useFlashcardStore();
