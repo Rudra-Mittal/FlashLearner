@@ -11,7 +11,6 @@ export function FlashcardReview() {
   // Motion values for swipe
   const x = useMotionValue(0);
   const rotate = useTransform(x, [-200, 200], [-30, 30]);
-  const opacity = useTransform(x, [-200, -150, 0, 150, 200], [0, 1, 1, 1, 0]);
   const resetCard = () => {
     x.set(0); // Reset the x position
     rotate.set(0); // Reset the rotation
@@ -47,7 +46,7 @@ export function FlashcardReview() {
     }
   };
 
-  const handleDragEnd = async (_, info) => {
+  const handleDragEnd = async (_: any, info: { offset: { x: any; }; }) => {
     const swipe = info.offset.x;
     if (Math.abs(swipe) > 70) {
       const isCorrect = swipe > 0;
@@ -70,6 +69,7 @@ export function FlashcardReview() {
       4: 'from-indigo-400 to-cyan-500',
       5: 'from-green-400 to-yellow-500'
     };
+    // @ts-ignore
     return gradients[box] || 'from-gray-400 to-gray-500';
   };
 
